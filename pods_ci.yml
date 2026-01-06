@@ -1,27 +1,30 @@
-apiVersion: v1
+
+apiVersion: v1 
 metadata: 
-       name: pod-ci 
-       labels: 
-          app: podci
-kind:  pod
+      name: pod-ci 
+      labels:
+        app: podci  #tags  
+kind:  Pod
 spec: 
-     containers: 
-       - name:  nginx-container
-         image: nginx-latest
-         ports: 
+     containers:
+      - name: nginx-container 
+        image: nginx
+        ports:
           - containerPort: 80
 
----
-
+--- 
 apiVersion: v1
-metadata:
-    name: ci-Service
+metadata: 
+    name: ci-service
 kind: Service
-spec:
+spec: 
     selector:
-         app: podci
-    ports: 
-      - protocol: TCP
-        port: 80
+        app: podci
+    type: ClusterIP
+    ports:
+      - protocol: TCP 
+        port: 80 
         targetPort: 80
-        type: ClusterIP
+        
+
+ #kubectl expose pod cipod  --port=80 --target-port=80 --type=ClusterIP
