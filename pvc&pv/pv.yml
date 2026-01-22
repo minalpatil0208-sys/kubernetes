@@ -13,6 +13,6 @@ spec:
     volumeMode: Filesystem #since ebs is used we use this volume mode
     persistentVolumeReclaimPolicy: Retain #data will be retained even after pv is deleted
     hostPath: 
-      path: "/mnt/data/nginxvol1" 
+      path: "/mnt/data/nginxvol" 
 
     #ensure accessModes, storageClassName and volumeMode matches with pvc
